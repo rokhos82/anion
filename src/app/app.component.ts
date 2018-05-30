@@ -56,5 +56,6 @@ export class AppComponent {
 
   addCard = function(ttl,txt) {
     this.cards.push({title:ttl,text:txt});
+    console.log(ttl,txt);
   }
 }
