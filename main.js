@@ -9,6 +9,7 @@ function createWindow() {
   })
 
   win.loadURL(`file://${__dirname}/dist/anion/index.html`);
+  win.maximize();
 
   win.on('closed',function() {
     win = null;
