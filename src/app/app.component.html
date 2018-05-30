@@ -1,4 +1,22 @@
 <div class="row">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="cardTitle">Card Title</label>
+          <input type="text" class="form-control" [(ngModel)]="cardTitle" id="cardTitle" aria-describedby="cardTitleHelp" placeholder="Be creative!">
+          <small id="cardTitleHelp" class="form-text text-muted">This is the title of the card to be added.</small>
+        </div>
+        <div class="form-group">
+          <label for="cardText">Card Text</label>
+          <input type="text" class="form-control" [(ngModel)]="cardText" id="cardText" placeholder="Be descriptive!">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addCard(cardTitle,cardText)">Add Card</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="card m-1" style="width: 18rem;" *ngFor="let card of cards">
     <img class="card-img-top" width="100px" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
     <div class="card-body">

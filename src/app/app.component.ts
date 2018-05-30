@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Anion';
 
+  cardTitle = "";
+  cardText = "";
+
   cards = [
     {
       title: "One of Four",
@@ -50,4 +53,8 @@ export class AppComponent {
       order: 8
     }
   ];
+
+  addCard = function(ttl,txt) {
+    this.cards.push({title:ttl,text:txt});
+  }
 }
