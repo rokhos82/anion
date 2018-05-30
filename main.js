@@ -24,3 +24,8 @@ app.on('window-all-closed',function() {
     app.quit();
   }
 });
+
+/*
+Storing data on the local computer.  app.getPath() will return the user's app data folder that
+matches the OS the app is running on.
+*/
