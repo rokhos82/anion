@@ -8,7 +8,7 @@ function createWindow() {
     height: 600
   })
 
-  win.loadURL(`file://${__dirname}/dist/index.html`);
+  win.loadURL(`file://${__dirname}/dist/anion/index.html`);
 
   win.on('closed',function() {
     win = null;
