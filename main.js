@@ -1,6 +1,7 @@
 const {app,BrowserWindow} = require('electron');
 const path = require('path');
 const Store = require('./store.js');
+const pjson = require('./package.json');
 
 const store = new Store({
   configName: 'user-data',
@@ -10,6 +11,22 @@ const store = new Store({
       height: 600,
       fullscreen: false
     }
+  }
+});
+
+const appData = new Store({
+  configName: 'app-data',
+  defaults: {
+    version: pjson.version;
+  }
+});
+
+const info = new Store({
+  configName: 'info',
+  defaults: {
+    unitTypes: [
+
+    ]
   }
 });
 
