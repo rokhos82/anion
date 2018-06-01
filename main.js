@@ -2,6 +2,7 @@ const {app,BrowserWindow} = require('electron');
 const path = require('path');
 const Store = require('electron-store');
 const pjson = require('./package.json');
+const anionMain = require('./anion.js');
 
 const store = new Store({
   name: 'user-data',
@@ -17,7 +18,7 @@ const store = new Store({
 const appData = new Store({
   name: 'app-data',
   defaults: {
-    version: "0.1.0"
+    version: pjson.version
   }
 });
 
