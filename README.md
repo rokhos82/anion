@@ -31,3 +31,4 @@ npm install -g @angular/cli
 npm install --save-dev electron
 npm install --save electron-packager
 npm install
+npm install electron-store
