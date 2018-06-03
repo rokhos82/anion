@@ -1,4 +1,4 @@
-const {app,BrowserWindow} = require('electron');
+const {app,BrowserWindow,ipcMain} = require('electron');
 const path = require('path');
 const Store = require('electron-store');
 const pjson = require('./package.json');
@@ -44,7 +44,7 @@ function createWindow() {
     win.maximize();
   }
 
-  //win.openDevTools();
+  win.openDevTools();
 
   win.on('closed',function() {
     win = null;
@@ -65,6 +65,11 @@ function createWindow() {
     store.set('windowBounds',{width,height,fullscreen});
   });
 }
+
+ipcMain.on('onAppReady',function() {
+  console.log('onAppReady');
+  return true;
+});
 
 app.on('ready',createWindow);
 

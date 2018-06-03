@@ -28,6 +28,7 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "electron-store": "^2.0.0",
+    "ngx-electron": "^1.0.4",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
@@ -38,7 +39,6 @@
     "@angular/language-service": "^6.0.3",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "electron": "^2.0.2",
     "electron-packager": "^12.1.0",

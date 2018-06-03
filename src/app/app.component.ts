@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ElectronService } from 'ngx-electron';
 
 @Component({
   selector: 'app-root',
@@ -7,55 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Anion';
+  cards = [];
+  cardTitle: string;
+  cardText: string;
 
-  cardTitle = "";
-  cardText = "";
+  constructor(private _electronService: ElectronService) {
+  }
 
-  cards = [
-    {
-      title: "One of Four",
-      text: "This is the first of four cards",
-      order: 1
-    },
-    {
-      title: "Two of Four",
-      text: "Something whity here!",
-      order: 3
-    },
-    {
-      title: "Three of Four",
-      text: "Henry the 8th...wait",
-      order: 2
-    },
-    {
-      title: "Four of Four",
-      text: "Is this a movie title",
-      order: 4
-    },
-    {
-      title: "Five of Four",
-      text: "What are we, pirates?",
-      order: 5
-    },
-    {
-      title: "Units",
-      text: "Unit design card",
-      order: 6
-    },
-    {
-      title: "Fleets",
-      text: "Fleet setup card",
-      order: 7
-    },
-    {
-      title: "Mobius",
-      text: "The battle engine goes here!",
-      order: 8
-    }
-  ];
+  ngOnInit() {
+    this._electronService.ipcRenderer.send('onAppReady');
+  }
 
-  addCard = function(ttl,txt) {
+  addCard(ttl,txt) {
     this.cards.push({title:ttl,text:txt});
-    console.log(ttl,txt);
   }
 }
