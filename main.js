@@ -66,9 +66,9 @@ function createWindow() {
   });
 }
 
-ipcMain.on('onAppReady',function() {
+ipcMain.on('onAppReady',function(event,arg) {
   console.log('onAppReady');
-  return true;
+  event.sender.send('onDataReady',{test:"test"});
 });
 
 app.on('ready',createWindow);

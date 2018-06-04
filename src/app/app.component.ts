@@ -17,6 +17,9 @@ export class AppComponent {
 
   ngOnInit() {
     this._electronService.ipcRenderer.send('onAppReady');
+    this._electronService.ipcRenderer.on('onDataReady',(data) => {
+      console.log('Data has been loaded: ' + data);
+    });
   }
 
   addCard(ttl,txt) {
