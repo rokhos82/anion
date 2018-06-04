@@ -16,13 +16,19 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this._electronService.ipcRenderer.send('onAppReady');
-    this._electronService.ipcRenderer.on('onDataReady',(data) => {
-      console.log('Data has been loaded: ' + data);
+    this._electronService.ipcRenderer.on('onDataReady',(event,data) => {
+      console.log(data);
+      this.cards = data;
     });
+    this._electronService.ipcRenderer.send('onAppReady');
   }
 
   addCard(ttl,txt) {
-    this.cards.push({title:ttl,text:txt});
+    let card = {
+      title: ttl,
+      text: txt
+    };
+    this.cards.push(card);
+    this._electronService.ipcRenderer.send('onNewCard',card);
   }
 }

@@ -18,7 +18,8 @@ const store = new Store({
 const appData = new Store({
   name: 'app-data',
   defaults: {
-    version: pjson.version
+    version: pjson.version,
+    cards: []
   }
 });
 
@@ -68,7 +69,14 @@ function createWindow() {
 
 ipcMain.on('onAppReady',function(event,arg) {
   console.log('onAppReady');
-  event.sender.send('onDataReady',{test:"test"});
+  event.sender.send('onDataReady',appData.get("cards") || []);
+});
+
+ipcMain.on('onNewCard',function(event,arg) {
+  console.log("New Card - ",arg.title);
+  let cards = appData.get("cards") || [];
+  cards.push(arg);
+  appData.set("cards",cards);
 });
 
 app.on('ready',createWindow);
